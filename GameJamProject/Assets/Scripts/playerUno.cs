@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class playerUno : MonoBehaviour
 {
     [SerializeField] private int staffSpace;
@@ -38,7 +37,7 @@ public class playerUno : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.C)){
             //toggle collision
-            //collisionsDisabled = !collisionsDisabled;
+            collisionsDisabled = !collisionsDisabled;
         }
     }
     void StaffMovements(){
@@ -51,7 +50,6 @@ public class playerUno : MonoBehaviour
             case Mode.Space:
                 break;
         }
-
     }
     void GetKey(){
         // If player presses UP or Left Click
