@@ -8,6 +8,8 @@ TagManager:
   - Win
   - SpaceBlock
   - StaffBlock
+  - StartRepeat
+  - EndRepeat
   layers:
   - Default
   - TransparentFX

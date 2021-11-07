@@ -9,10 +9,13 @@ public class playerUno : MonoBehaviour
 {
     public GameObject trebleStaff;
     public GameObject bassStaff;
+    public GameObject StartRepeat;
+    public GameObject EndRepeat;
 
     [SerializeField] private int staffSpace;
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] private float spaceVel;
+    Collider other;
 
     public AudioClip deathClip; 
     private AudioSource audioSource;
@@ -127,38 +130,38 @@ public class playerUno : MonoBehaviour
         // Move player up or down by specified amount
         transform.Translate(0, spaceVel, 0);
     }
-
     //obstacles
-    //FIXME: allow collisions for 2d objects
     void OnCollisionEnter(Collision collision){
+        
         if(state != State.alive || collisionsDisabled){ return; }
         
         switch(collision.gameObject.tag){
             case "Win":
                 StartSucessSequence();
                 break;
-
             case "Lose":
                 StartDeathSequence();
                 break;
+            case "StartRepeat":
+                OnTriggerEnter(other);
+                break;
             default:
                 StartDeathSequence();
-                break;
-            case "StartRepeat":
-                StartRepeat();
-                break;
+                break;    
         }
     }
-    public void StartRepeat(){
+    void OnTriggerEnter(Collider other){
        // if startrepeat is touched go to endrepeat
        //for only once
-       /**
-       for (int i = 0; i < 2; i++){
-           if(player collides with start repeat) {
-               go to "endrepeat"
+        StartRepeat = GameObject.FindWithTag("StartRepeat");
+        EndRepeat = GameObject.FindWithTag("EndRepeat");
+
+       for (int i = 0; i < 1; i++){
+           if(other.gameObject.tag == "StartRepeat") {
+               other.transform.position = EndRepeat.transform.position;
+               other.transform.rotation = EndRepeat.transform.rotation;
            }
        }
-       **/
     }
     /** not sure if i need this 
     public void EndRepeat(){
