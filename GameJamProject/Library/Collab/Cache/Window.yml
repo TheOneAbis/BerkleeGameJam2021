@@ -15,6 +15,7 @@ MonoBehaviour:
   SimpleSelectedItems:
     m_Keys:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - 
     m_Values: 01
 =======
@@ -30,6 +31,10 @@ MonoBehaviour:
     - ProjectSettings/ProjectVersion.txt
     - 
     m_Values: 0000000000000000000000
+>>>>>>> Stashed changes
+=======
+    - 
+    m_Values: 01
 >>>>>>> Stashed changes
   RevisionSummary: 
   ChangesSearchValue: 

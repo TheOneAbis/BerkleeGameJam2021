@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 81
+=======
+  controlID: 54
+>>>>>>> Stashed changes
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +230,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 82
+=======
+  controlID: 59
+>>>>>>> Stashed changes
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +259,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 83
+=======
+  controlID: 60
+>>>>>>> Stashed changes
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -543,9 +555,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: 750.6323, y: 380.64264, z: -74.63211}
     speed: 2
     m_Value: {x: 750.6323, y: 380.64264, z: -74.63211}
+=======
+    m_Target: {x: 1210.2083, y: -25.215712, z: -36033.902}
+    speed: 2
+    m_Value: {x: 1210.2083, y: -25.215712, z: -36033.902}
+>>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -596,9 +614,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< Updated upstream
     m_Target: 474.3197
     speed: 2
     m_Value: 474.3197
+=======
+    m_Target: 604.87213
+    speed: 2
+    m_Value: 604.87213
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 1
     speed: 2
