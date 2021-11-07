@@ -124,6 +124,7 @@ public class playerUno : MonoBehaviour
 
     /*
     //obstacles
+    //FIXME: allow collisions for 2d objects
     void OnCollisionEnter(Collision collision){
         if(state != State.alive || collisionsDisabled){ return; }
         
@@ -148,6 +149,7 @@ public class playerUno : MonoBehaviour
     public void StartDeathSequence(){
         //return to the beg
         state = State.dead;
+        gameObject.SetActive(false);
         //audio source will be musicians
         Invoke("LoadCurrentLevel", levelLoadDelay);
         
@@ -163,5 +165,6 @@ public class playerUno : MonoBehaviour
     private void LoadCurrentLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        gameObject.SetActive(true);
     }
 }

@@ -61,6 +61,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeMode(Mode mode)
+    {
+        if (mode == Mode.Space)
+        {
+            playerStaffPosY = player.transform.position.y;
+            player.transform.position = new Vector3(player.transform.position.x, 0, 0);
+        }
+        else if (mode == Mode.Staff)
+        {
+            player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
+        }
+        playerMode = mode;
+        AnimateTransition();
+    }
+
     /// <summary>
     /// Animation Transition to Space Mode, shrinking staffs for more space to move around in middle
     /// </summary>

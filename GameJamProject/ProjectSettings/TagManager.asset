@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Lose
   - Win
+  - SpaceBlock
+  - StaffBlock
   layers:
   - Default
   - TransparentFX

@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Scenes/Level 1.unity
+    - Assets/Assets/Materials.meta
+    - Assets/Assets/Materials/GreenMaterial.mat
+    - Assets/Assets/Materials/GreenMaterial.mat.meta
     - Assets/Scripts/CollisionDetector.cs
-    - Assets/Scripts/CollisionDetector.cs.meta
     - Assets/Scripts/GameManager.cs
     - Assets/Scripts/playerUno.cs
+    - ProjectSettings/ProjectVersion.txt
+    - ProjectSettings/TagManager.asset
     - 
-    m_Values: 010101010101
-  RevisionSummary: Collision Detection now works
+    m_Values: 000000000000000000
+  RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
