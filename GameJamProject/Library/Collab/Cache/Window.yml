@@ -14,17 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Assets/Materials.meta
-    - Assets/Assets/Materials/GreenMaterial.mat
-    - Assets/Assets/Materials/GreenMaterial.mat.meta
-    - Assets/Scripts/CollisionDetector.cs
-    - Assets/Scripts/GameManager.cs
-    - Assets/Scripts/playerUno.cs
-    - ProjectSettings/ProjectVersion.txt
-    - ProjectSettings/TagManager.asset
     - 
-    m_Values: 000000000000000000
-  RevisionSummary: 
+    m_Values: 01
+  RevisionSummary: Added death sound effect
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0

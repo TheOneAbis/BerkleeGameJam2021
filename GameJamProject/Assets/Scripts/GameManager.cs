@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         player.transform.position = new Vector3(450, -236, 0);
         playerMode = Mode.Staff;
-        moveSpeed = 400;
+        moveSpeed = 900;
     }
 
     // Update is called once per frame

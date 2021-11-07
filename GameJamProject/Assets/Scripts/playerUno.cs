@@ -11,8 +11,11 @@ public class playerUno : MonoBehaviour
     public GameObject bassStaff;
 
     [SerializeField] private int staffSpace;
-    [SerializeField] float levelLoadDelay = 2f;
+    [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] private float spaceVel;
+
+    public AudioClip deathClip; 
+    private AudioSource audioSource;
 
     public State state = State.alive;
     bool collisionsDisabled = false;
@@ -22,6 +25,9 @@ public class playerUno : MonoBehaviour
     {
         staffSpace = 2;
         spaceVel = 0;
+
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = deathClip;
     }
 
     // Update is called once per frame
@@ -122,7 +128,6 @@ public class playerUno : MonoBehaviour
         transform.Translate(0, spaceVel, 0);
     }
 
-    /*
     //obstacles
     //FIXME: allow collisions for 2d objects
     void OnCollisionEnter(Collision collision){
@@ -132,16 +137,40 @@ public class playerUno : MonoBehaviour
             case "Win":
                 StartSucessSequence();
                 break;
+
+            case "Lose":
+                StartDeathSequence();
+                break;
             default:
                 StartDeathSequence();
                 break;
+            case "StartRepeat":
+                StartRepeat();
+                break;
         }
     }
-    */
+    public void StartRepeat(){
+       // if startrepeat is touched go to endrepeat
+       //for only once
+       /**
+       for (int i = 0; i < 2; i++){
+           if(player collides with start repeat) {
+               go to "endrepeat"
+           }
+       }
+       **/
+    }
+    /** not sure if i need this 
+    public void EndRepeat(){
+        //at end re
+
+    }
+    **/
 
     //success
     public void StartSucessSequence(){
         state = State.transcending;
+        print("won");
         //audio source will be musicians
         Invoke("LoadNextLevel", levelLoadDelay);
     }
@@ -149,7 +178,9 @@ public class playerUno : MonoBehaviour
     public void StartDeathSequence(){
         //return to the beg
         state = State.dead;
-        gameObject.SetActive(false);
+        audioSource.Play();
+        GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0); // Disappear from screen
+
         //audio source will be musicians
         Invoke("LoadCurrentLevel", levelLoadDelay);
         

@@ -55,8 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\menuBut.cs" />
     <Compile Include="Assets\Scripts\playerUno.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CollisionDetector.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
