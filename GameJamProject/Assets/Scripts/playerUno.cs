@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class playerUno : MonoBehaviour
 {
+    public GameObject trebleStaff;
+    public GameObject bassStaff;
+
     [SerializeField] private int staffSpace;
     [SerializeField] float levelLoadDelay = 2f;
-    private int spaceVel;
+    [SerializeField] private float spaceVel;
 
     enum State{alive, dead, transcending};
     State state = State.alive;
@@ -44,10 +47,13 @@ public class playerUno : MonoBehaviour
         switch (GameManager.playerMode)
         {
             case Mode.Staff:
+                // Movement Inputs
                 GetKey();
                 break;
 
             case Mode.Space:
+                // Movement Inputs
+                GetKeyAccel();
                 break;
         }
     }
@@ -70,22 +76,47 @@ public class playerUno : MonoBehaviour
                 }
         }
         // If player presses DOWN or Right Click
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(1)){
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(1))
+        {
+            if (staffSpace > 0)
+            {
+                if (staffSpace == 4)
                 {
-                    if (staffSpace > 0)
-                    {
-                        if (staffSpace == 4)
-                        {
-                            transform.Translate(0, -305, 0);
-                        }
-                        else
-                        {
-                            transform.Translate(0, -86, 0);
-                        }
-                        staffSpace--;
-                    }
-                }        
+                    transform.Translate(0, -305, 0);
+                }
+                else
+                {
+                    transform.Translate(0, -86, 0);
+                }
+                staffSpace--;
+            }     
         }
+    }
+
+    void GetKeyAccel()
+    {
+        float maxSpeed = 4;
+        int accelAmt = 15;
+        // Accel up when key down, slow down when key up
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetMouseButton(0))
+        {
+            spaceVel = spaceVel < maxSpeed ? spaceVel + Time.smoothDeltaTime * accelAmt * 2 : maxSpeed;
+        }
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(1))
+        {
+            spaceVel = spaceVel > -maxSpeed ? spaceVel - Time.smoothDeltaTime * accelAmt * 2 : -maxSpeed;
+        }
+
+        if (spaceVel > 0.01) spaceVel -= Time.smoothDeltaTime * accelAmt;
+        else if (spaceVel < -0.01) spaceVel += Time.smoothDeltaTime * accelAmt;
+        else spaceVel = 0;
+
+        // Check collisions with top and bottom
+        if (transform.position.y + transform.lossyScale.y > trebleStaff.transform.position.y - trebleStaff.transform.localScale.y && spaceVel > 0) spaceVel = 0;
+        else if (transform.position.y - transform.localScale.y < bassStaff.transform.position.y + bassStaff.transform.localScale.y && spaceVel < 0) spaceVel = 0;
+
+        // Move player up or down by specified amount
+        transform.Translate(0, spaceVel, 0);
     }
     //obstacles
     void OnCollisionEnter(Collision collision){

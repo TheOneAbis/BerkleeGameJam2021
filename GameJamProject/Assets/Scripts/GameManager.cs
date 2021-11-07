@@ -11,25 +11,22 @@ public enum Mode
 public class GameManager : MonoBehaviour
 {
     // Public GameObject references
-    public GameObject playerObj;
+    public GameObject player;
     public GameObject obstacleObj;
-    public GameObject camera;
     public GameObject trebleStaff;
     public GameObject bassStaff;
 
     // Determine the game mode
     public static Mode playerMode;
-
-    private GameObject player;
     private float playerStaffPosY; //Store player's staff mode position before they switched to Space mode
     private float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = Instantiate(playerObj, new Vector3(350, -236, 0), Quaternion.identity);
+        player.transform.position = new Vector3(450, -236, 0);
         playerMode = Mode.Staff;
-        moveSpeed = 100;
+        moveSpeed = 400;
     }
 
     // Update is called once per frame
@@ -53,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Move Camera & player
-        camera.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
+        Camera.main.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
         player.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
     }
 
