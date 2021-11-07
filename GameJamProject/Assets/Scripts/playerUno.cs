@@ -112,8 +112,10 @@ public class playerUno : MonoBehaviour
         else spaceVel = 0;
 
         // Check collisions with top and bottom
-        if (transform.position.y + transform.lossyScale.y > trebleStaff.transform.position.y - trebleStaff.transform.localScale.y && spaceVel > 0) spaceVel = 0;
-        else if (transform.position.y - transform.localScale.y < bassStaff.transform.position.y + bassStaff.transform.localScale.y && spaceVel < 0) spaceVel = 0;
+        if ((transform.position.y + transform.localScale.y > 
+            trebleStaff.transform.position.y - trebleStaff.transform.localScale.y && spaceVel > 0) ||
+            (transform.position.y - transform.localScale.y < 
+            bassStaff.transform.position.y + bassStaff.transform.localScale.y && spaceVel < 0)) spaceVel = 0;
 
         // Move player up or down by specified amount
         transform.Translate(0, spaceVel, 0);
