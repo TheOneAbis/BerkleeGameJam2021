@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum State { alive, dead, transcending };
+
 public class playerUno : MonoBehaviour
 {
     public GameObject trebleStaff;
@@ -12,8 +14,7 @@ public class playerUno : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] private float spaceVel;
 
-    enum State{alive, dead, transcending};
-    State state = State.alive;
+    public State state = State.alive;
     bool collisionsDisabled = false;
 
     // Start is called before the first frame update
@@ -95,7 +96,7 @@ public class playerUno : MonoBehaviour
 
     void GetKeyAccel()
     {
-        float maxSpeed = 4;
+        float maxSpeed = 4.5f;
         int accelAmt = 15;
         // Accel up when key down, slow down when key up
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetMouseButton(0))
@@ -120,6 +121,8 @@ public class playerUno : MonoBehaviour
         // Move player up or down by specified amount
         transform.Translate(0, spaceVel, 0);
     }
+
+    /*
     //obstacles
     void OnCollisionEnter(Collision collision){
         if(state != State.alive || collisionsDisabled){ return; }
@@ -133,14 +136,16 @@ public class playerUno : MonoBehaviour
                 break;
         }
     }
+    */
+
     //success
-    void StartSucessSequence(){
+    public void StartSucessSequence(){
         state = State.transcending;
         //audio source will be musicians
         Invoke("LoadNextLevel", levelLoadDelay);
     }
     //death
-    void StartDeathSequence(){
+    public void StartDeathSequence(){
         //return to the beg
         state = State.dead;
         //audio source will be musicians

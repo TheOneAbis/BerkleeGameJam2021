@@ -32,26 +32,33 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // For now, this control will alter the player mode
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Update based on player state
+        switch (player.GetComponent<playerUno>().state)
         {
-            if (playerMode == Mode.Staff)
-            {
-                playerMode = Mode.Space;
-                playerStaffPosY = player.transform.position.y;
-                player.transform.position = new Vector3(player.transform.position.x, 0, 0);
-            }
-            else
-            {
-                playerMode = Mode.Staff;
-                player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
-            }
-            AnimateTransition();
-        }
+            // Main gameplay
+            case State.alive:
+                // For now, this control will alter the player mode
+                if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
+                    if (playerMode == Mode.Staff)
+                    {
+                        playerMode = Mode.Space;
+                        playerStaffPosY = player.transform.position.y;
+                        player.transform.position = new Vector3(player.transform.position.x, 0, 0);
+                    }
+                    else
+                    {
+                        playerMode = Mode.Staff;
+                        player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
+                    }
+                    AnimateTransition();
+                }
+                // Move Camera & player
+                Camera.main.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
+                player.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
 
-        // Move Camera & player
-        Camera.main.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
-        player.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
+                break;
+        }
     }
 
     /// <summary>
