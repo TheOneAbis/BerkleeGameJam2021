@@ -9,14 +9,15 @@ public class playerUno : MonoBehaviour
 {
     public GameObject trebleStaff;
     public GameObject bassStaff;
-    public GameObject StartRepeat;
+    public GameObject startRepeat;
     public GameObject EndRepeat;
 
     [SerializeField] private int staffSpace;
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] private float spaceVel;
-    Collider other;
+    Collider2D collider;
 
+    Rigidbody rigidBody;
     public AudioClip deathClip; 
     private AudioSource audioSource;
 
@@ -29,6 +30,7 @@ public class playerUno : MonoBehaviour
         staffSpace = 2;
         spaceVel = 0;
 
+        rigidBody = GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.clip = deathClip;
     }
@@ -137,49 +139,46 @@ public class playerUno : MonoBehaviour
         
         switch(collision.gameObject.tag){
             case "Win":
+                print("win");
                 StartSucessSequence();
+                break;
+            case "StartRepeat":
+                print("touched");
+                OnTriggerEnter2D(collider);
                 break;
             case "Lose":
                 StartDeathSequence();
-                break;
-            case "StartRepeat":
-                OnTriggerEnter(other);
                 break;
             default:
                 StartDeathSequence();
                 break;    
         }
     }
-    void OnTriggerEnter(Collider other){
+    void OnTriggerEnter2D(Collider2D collider){
        // if startrepeat is touched go to endrepeat
        //for only once
-        StartRepeat = GameObject.FindWithTag("StartRepeat");
+        startRepeat = GameObject.FindWithTag("StartRepeat");
         EndRepeat = GameObject.FindWithTag("EndRepeat");
 
        for (int i = 0; i < 1; i++){
-           if(other.gameObject.tag == "StartRepeat") {
-               other.transform.position = EndRepeat.transform.position;
-               other.transform.rotation = EndRepeat.transform.rotation;
+           if(collider.gameObject.tag == "StartRepeat") {
+               collider.transform.position = EndRepeat.transform.position;
+               collider.transform.rotation = EndRepeat.transform.rotation;
            }
        }
     }
-    /** not sure if i need this 
-    public void EndRepeat(){
-        //at end re
-
-    }
-    **/
 
     //success
     public void StartSucessSequence(){
+        print("Win");
         state = State.transcending;
-        print("won");
         //audio source will be musicians
         Invoke("LoadNextLevel", levelLoadDelay);
     }
     //death
     public void StartDeathSequence(){
         //return to the beg
+        print("lose");
         state = State.dead;
         audioSource.Play();
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0); // Disappear from screen
