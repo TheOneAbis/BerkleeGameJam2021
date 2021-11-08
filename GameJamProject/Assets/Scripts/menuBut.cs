@@ -29,10 +29,10 @@ public class menuBut : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
-    /*public void ControlsMenu()
+    public void ControlsMenu()
     {
-        SceneManager.LoadScene("Controls");
-    }*/
+        SceneManager.LoadScene("HelpMenu");
+    }
 
     public void QuitGame()
     {

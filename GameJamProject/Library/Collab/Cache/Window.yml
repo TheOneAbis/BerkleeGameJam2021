@@ -14,11 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Scenes/Level 1.unity
+    - .collabignore
+    - Assets/Assets/557437-200 (1).png
+    - Assets/Assets/557437-200 (1).png.meta
+    - Assets/Assets/exit button.png
+    - Assets/Assets/exit button.png.meta
+    - Assets/Assets/musicPlayButton (1).png
+    - Assets/Assets/musicPlayButton (1).png.meta
+    - Assets/Scenes/HelpMenu.unity
+    - Assets/Scenes/HelpMenu.unity.meta
+    - Packages/manifest.json
+    - Packages/packages-lock.json
     - ProjectSettings/ProjectVersion.txt
     - 
-    m_Values: 010101
-  RevisionSummary: more stuff for level
+    m_Values: 00000000000000000000000000
+  RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
