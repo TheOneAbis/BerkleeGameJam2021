@@ -24,7 +24,7 @@ public class menuBut : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }*/
 
-    public void MainMenu()
+    public void PlayGame()
     {
         SceneManager.LoadScene("Level 1");
     }
@@ -33,6 +33,12 @@ public class menuBut : MonoBehaviour
     {
         SceneManager.LoadScene("HelpMenu");
     }
+
+    public void ReturnMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 
     public void QuitGame()
     {
