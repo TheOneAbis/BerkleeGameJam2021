@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player.transform.position = new Vector3(450, -236, 0);
+        player.transform.position = new Vector3(600, -236, 0);
         playerMode = Mode.Staff;
         moveSpeed = 900;
     }

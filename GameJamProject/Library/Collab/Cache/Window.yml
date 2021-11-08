@@ -14,18 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Scenes/PauseScreen.unity
-    - Assets/Scenes/PauseScreen.unity.meta
-    - Assets/Scripts/GameManager.cs
+    - Assets/Scenes/Level 1.unity
     - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
-    - Assets/animation/QuitGame2.controller
-    - Assets/animation/QuitGame2.controller.meta
-    - Assets/animation/resume.controller
-    - Assets/animation/resume.controller.meta
-    - ProjectSettings/EditorBuildSettings.asset
     - 
-    m_Values: 01010101010101010101
-  RevisionSummary: Pause Scene
+    m_Values: 000000
+  RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
