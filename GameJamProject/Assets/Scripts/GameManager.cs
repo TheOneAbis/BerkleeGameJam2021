@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Mode
 {
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
         // Pause the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-
+            SceneManager.LoadScene("PauseScreen");
         }
 
         // Update based on player state
