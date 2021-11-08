@@ -12,12 +12,14 @@ public class playerUno : MonoBehaviour
     public GameObject startRepeat;
     public GameObject EndRepeat;
 
+    Collider2D collider;
+    Rigidbody rigidBody;
+
     [SerializeField] private int staffSpace;
     [SerializeField] float levelLoadDelay = 1f;
     [SerializeField] private float spaceVel;
-    Collider2D collider;
-
-    Rigidbody rigidBody;
+    
+    
     public AudioClip deathClip; 
     private AudioSource audioSource;
 
@@ -33,6 +35,7 @@ public class playerUno : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.clip = deathClip;
+
     }
 
     // Update is called once per frame
@@ -143,8 +146,7 @@ public class playerUno : MonoBehaviour
                 StartSucessSequence();
                 break;
             case "StartRepeat":
-                print("touched");
-                OnTriggerEnter2D(collider);
+                StartRepeatSequence();
                 break;
             case "Lose":
                 StartDeathSequence();
@@ -153,19 +155,6 @@ public class playerUno : MonoBehaviour
                 StartDeathSequence();
                 break;    
         }
-    }
-    void OnTriggerEnter2D(Collider2D collider){
-       // if startrepeat is touched go to endrepeat
-       //for only once
-        startRepeat = GameObject.FindWithTag("StartRepeat");
-        EndRepeat = GameObject.FindWithTag("EndRepeat");
-
-       for (int i = 0; i < 1; i++){
-           if(collider.gameObject.tag == "StartRepeat") {
-               collider.transform.position = EndRepeat.transform.position;
-               collider.transform.rotation = EndRepeat.transform.rotation;
-           }
-       }
     }
 
     //success
@@ -182,10 +171,16 @@ public class playerUno : MonoBehaviour
         state = State.dead;
         audioSource.Play();
         GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0); // Disappear from screen
-
         //audio source will be musicians
         Invoke("LoadCurrentLevel", levelLoadDelay);
         
+    }
+    public void StartRepeatSequence(){
+        //start scroll in opposite direction
+        //change camera to end
+        //change character to -180
+        GameObject.Find("Player").transform.position = new Vector3(1113, 0, 0);
+        GameObject.Find("Main Camera").transform.position = new Vector3(11606, 0, 0);
     }
     void LoadNextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

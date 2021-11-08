@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Pause the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+        }
+
         // Update based on player state
         switch (player.GetComponent<playerUno>().state)
         {
@@ -42,16 +48,19 @@ public class GameManager : MonoBehaviour
                 {
                     if (playerMode == Mode.Staff)
                     {
-                        playerMode = Mode.Space;
-                        playerStaffPosY = player.transform.position.y;
-                        player.transform.position = new Vector3(player.transform.position.x, 0, 0);
+                        //playerMode = Mode.Space;
+                        //playerStaffPosY = player.transform.position.y;
+                        //player.transform.position = new Vector3(player.transform.position.x, 0, 0);
+
+                        ChangeMode(Mode.Space);
                     }
                     else
                     {
-                        playerMode = Mode.Staff;
-                        player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
+                        //playerMode = Mode.Staff;
+                        //player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
+                        ChangeMode(Mode.Staff);
                     }
-                    AnimateTransition();
+                    //AnimateTransition();
                 }
                 // Move Camera & player
                 Camera.main.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
@@ -61,8 +70,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Changes player mode to the specified mode
+    /// </summary>
+    /// <param name="mode">The specified mode to change to</param>
     public void ChangeMode(Mode mode)
     {
+        playerMode = mode;
         if (mode == Mode.Space)
         {
             playerStaffPosY = player.transform.position.y;
@@ -72,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
         }
-        playerMode = mode;
+        
         AnimateTransition();
     }
 
