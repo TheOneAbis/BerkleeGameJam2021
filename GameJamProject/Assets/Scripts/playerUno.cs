@@ -133,7 +133,7 @@ public class playerUno : MonoBehaviour
         transform.Translate(0, spaceVel, 0);
     }
     //obstacles
-    void OnCollisionEnter(Collision collision){
+    void OnCollisionEnter2D(Collision2D collision){
         
         if(state != State.alive || collisionsDisabled){ return; }
         
