@@ -8,7 +8,8 @@ public class CollisionDetector : MonoBehaviour
     public GameObject player;
     public GameObject ModeChangerGroup;
     public GameObject EndGroup; //Group of level end game objects
-public GameObject StartRepeat;
+    public GameObject StartRepeat;
+
     // Start is called before the first frame update
     void Start()
     {

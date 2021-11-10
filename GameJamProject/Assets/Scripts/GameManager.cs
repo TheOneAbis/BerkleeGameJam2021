@@ -22,12 +22,19 @@ public class GameManager : MonoBehaviour
     private float playerStaffPosY; //Store player's staff mode position before they switched to Space mode
     private float moveSpeed;
 
+    private Animator animatorBass;
+    private Animator animatorTreble;
+
     // Start is called before the first frame update
     void Start()
     {
         player.transform.position = new Vector3(600, -236, 0);
         playerMode = Mode.Staff;
         moveSpeed = 900;
+
+        // Set animators for staffs for mode transition animations
+        animatorBass = bassStaff.GetComponent<Animator>();
+        animatorTreble = trebleStaff.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,20 +55,9 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     if (playerMode == Mode.Staff)
-                    {
-                        //playerMode = Mode.Space;
-                        //playerStaffPosY = player.transform.position.y;
-                        //player.transform.position = new Vector3(player.transform.position.x, 0, 0);
-
                         ChangeMode(Mode.Space);
-                    }
                     else
-                    {
-                        //playerMode = Mode.Staff;
-                        //player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
                         ChangeMode(Mode.Staff);
-                    }
-                    //AnimateTransition();
                 }
                 // Move Camera & player
                 Camera.main.transform.Translate(Time.deltaTime * moveSpeed, 0, 0);
@@ -82,37 +78,14 @@ public class GameManager : MonoBehaviour
         {
             playerStaffPosY = player.transform.position.y;
             player.transform.position = new Vector3(player.transform.position.x, 0, 0);
+            animatorTreble.Play("StaffShrinkTreble");
+            animatorBass.Play("StaffShrinkBass");
         }
         else if (mode == Mode.Staff)
         {
             player.transform.position = new Vector3(player.transform.position.x, playerStaffPosY, player.transform.position.z);
-        }
-        
-        AnimateTransition();
-    }
-
-    /// <summary>
-    /// Animation Transition to Space Mode, shrinking staffs for more space to move around in middle
-    /// </summary>
-    void AnimateTransition()
-    {
-        float translateAmt = 90;
-        float scaleAmt = 30;
-        if (playerMode == Mode.Space) // If transitioning to Space
-        {
-            trebleStaff.transform.localScale = new Vector3(trebleStaff.transform.localScale.x, trebleStaff.transform.localScale.y - scaleAmt, 1);
-            bassStaff.transform.localScale = new Vector3(bassStaff.transform.localScale.x, bassStaff.transform.localScale.y - scaleAmt, 1);
-
-            trebleStaff.transform.Translate(0, translateAmt, 0);
-            bassStaff.transform.Translate(0, -translateAmt, 0);
-        }
-        else // If transitioning to Staff
-        {
-            trebleStaff.transform.localScale = new Vector3(trebleStaff.transform.localScale.x, trebleStaff.transform.localScale.y + scaleAmt, 1);
-            bassStaff.transform.localScale = new Vector3(bassStaff.transform.localScale.x, bassStaff.transform.localScale.y + scaleAmt, 1);
-
-            trebleStaff.transform.Translate(0, -translateAmt, 0);
-            bassStaff.transform.Translate(0, translateAmt, 0);
+            animatorTreble.Play("StaffExpandTreble");
+            animatorBass.Play("StaffExpandBass");
         }
     }
 }
