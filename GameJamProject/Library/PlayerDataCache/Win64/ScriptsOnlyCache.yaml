@@ -69,21 +69,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1968}
+      Script: {instanceID: 1846}
     - Class: 114
-      Script: {instanceID: 1974}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2942}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2988}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 3160}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 3532}
+      Script: {instanceID: 3410}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -119,22 +119,28 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 3258}
+      Script: {instanceID: 3136}
     - Class: 114
-      Script: {instanceID: 3418}
+      Script: {instanceID: 3296}
     - Class: 114
-      Script: {instanceID: 5864}
+      Script: {instanceID: 5744}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -173,29 +179,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1968}
+      Script: {instanceID: 1846}
     - Class: 114
-      Script: {instanceID: 1974}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 2354}
+      Script: {instanceID: 2232}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2942}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2988}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 3160}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 3532}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 4716}
+      Script: {instanceID: 4596}
     - Class: 114
-      Script: {instanceID: 4870}
+      Script: {instanceID: 4750}
     - Class: 114
-      Script: {instanceID: 5252}
+      Script: {instanceID: 5132}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -234,17 +240,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1974}
+      Script: {instanceID: 1852}
     - Class: 114
-      Script: {instanceID: 2778}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 2942}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3160}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3286}
     - Class: 114
-      Script: {instanceID: 3532}
+      Script: {instanceID: 3410}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -1010,4 +1016,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/HelpMenu.unity
   - Assets/Scenes/Level 1.unity
   - Assets/Scenes/PauseScreen.unity
-  playerPath: C:/Users/pheon/Downloads/TempoRunBuild/GameJamProject.exe
+  playerPath: C:/Users/arjun/OneDrive/Documents/GitHub/BerkleeGameJam2021/GameJamProject/TempoRun/GameJamProject.exe
