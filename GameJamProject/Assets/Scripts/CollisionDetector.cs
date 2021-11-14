@@ -57,14 +57,6 @@ public class CollisionDetector : MonoBehaviour
                 }
             }
 
-            // Check collisions with Repeat blocks
-            foreach (Transform child in StartRepeat.transform)
-            {
-                if (HorizontalCollide(player, child.gameObject))
-                {
-                    player.GetComponent<playerUno>().StartRepeatSequence();
-                }
-            }
         }
     }
 

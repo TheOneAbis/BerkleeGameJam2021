@@ -11,6 +11,7 @@ TagManager:
   - StartRepeat
   - EndRepeat
   - Start
+  - RealPlayer
   layers:
   - Default
   - TransparentFX

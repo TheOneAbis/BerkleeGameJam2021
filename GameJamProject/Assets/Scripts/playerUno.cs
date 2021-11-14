@@ -9,9 +9,10 @@ public class playerUno : MonoBehaviour
 {
     public GameObject trebleStaff;
     public GameObject bassStaff;
-    public GameObject startRepeat;
-    public GameObject EndRepeat;
+    //public GameObject startRepeat;
+    //public GameObject EndRepeat;
 
+    Vector3 spawnPoint = new Vector3(5440f, -256f, -1.62f);
     Collider2D collider;
     Rigidbody rigidBody;
 
@@ -139,14 +140,10 @@ public class playerUno : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision){
         
         if(state != State.alive || collisionsDisabled){ return; }
-        
         switch(collision.gameObject.tag){
             case "Win":
                 print("win");
                 StartSucessSequence();
-                break;
-            case "StartRepeat":
-                StartRepeatSequence();
                 break;
             case "Lose":
                 StartDeathSequence();
@@ -174,13 +171,15 @@ public class playerUno : MonoBehaviour
         //audio source will be musicians
         Invoke("LoadCurrentLevel", levelLoadDelay);
         
-    }
-    public void StartRepeatSequence(){
-        //start scroll in opposite direction
-        //change camera to end
-        //change character to -180
-        GameObject.Find("Player").transform.position = new Vector3(1113, 0, 0);
-        GameObject.Find("Main Camera").transform.position = new Vector3(11606, 0, 0);
+    }//trigger
+    void OnTriggerEnter2D(Collider2D collider){
+        print("ok");
+        for(int i = 0; i <= 1; i++){
+            if(collider.tag == "Player"){
+                gameObject.transform.position = spawnPoint;
+                print("seen");
+            }
+        }
     }
     void LoadNextLevel(){
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

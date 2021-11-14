@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+    - ProjectSettings/ProjectVersion.txt
     - 
-    m_Values: 01
-  RevisionSummary: added more to level 1, lemme know if it's too hard
+    m_Values: 000000
+  RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
